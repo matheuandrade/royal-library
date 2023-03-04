@@ -1,0 +1,9 @@
+@host = http://localhost:5162
+
+POST {{host}}/books
+Content-Type: application/json
+
+{
+    "email":"email@emai.com",
+    "password": "123"
+}

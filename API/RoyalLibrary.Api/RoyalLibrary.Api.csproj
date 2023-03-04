@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\RoyalLibrary.Infrastructure\RoyalLibrary.Infrastructure.csproj" />
+    <ProjectReference Include="..\RoyalLibrary.Application\RoyalLibrary.Application.csproj" />
+    <ProjectReference Include="..\RoyalLibrary.Contracts\RoyalLibrary.Contracts.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
