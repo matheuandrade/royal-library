@@ -1,4 +1,4 @@
 @host = http://localhost:5130
 
-GET {{host}}/books/search?searchValue=Austen&searchType=Author
+GET {{host}}/books/search?searchValue=sa&searchType=Author 
 Content-Type: application/json

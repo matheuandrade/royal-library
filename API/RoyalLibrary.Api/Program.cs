@@ -16,5 +16,10 @@ var app = builder.Build();
     app.UseHttpsRedirection();
     app.MapControllers();
 
+    app.UseCors(x => x
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+
     app.Run();   
 }
