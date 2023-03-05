@@ -13,8 +13,13 @@ public class BookService : IBookService
 
     public async Task<GetAllBooksResult> GetAllBooks()
     {
-        await Task.CompletedTask;
+        var books = await _bookRepository.GetAllBooks();
 
+        return new GetAllBooksResult(books);
+    }
+
+    public async Task<GetAllBooksResult> GetBooksSearch(GetAllBooksSearch search)
+    {
         var books = await _bookRepository.GetAllBooks();
 
         return new GetAllBooksResult(books);

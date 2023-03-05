@@ -1,6 +1,7 @@
 namespace RoyalLibrary.Api.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using RoyalLibrary.Application.Services.Book;
+using RoyalLibrary.Contracts.Book;
 
 [ApiController]
 [Route("books")]
@@ -22,18 +23,8 @@ public class BooksController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult PostAsync()
+    public IActionResult PostAsync(BookRequest request)
     {
-        // var loginResult = _authenticationService.Login(
-        //     request.Email,
-        //     request.Password);
-
-        // var response = new AuthenticationResponse(loginResult.User.Id,
-        //     loginResult.User.FirstName,
-        //     loginResult.User.LastName,
-        //     loginResult.User.Email,
-        //     loginResult.Token);
-
         return Ok();
     }
 }
