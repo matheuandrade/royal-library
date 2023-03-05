@@ -5,6 +5,6 @@ namespace RoyalLibrary.Application.Common.Interfaces.Persistance;
 
 public interface IBookRepository
 {
-    Task<IEnumerable<Book>> GetWhere(Expression<Func<Book, bool>> predicate);
+    public Task<IEnumerable<Book>> GetWhere(Expression<Func<Book, bool>> predicate);
     public Task<IEnumerable<Book>> GetAllBooks();
 }

@@ -1,30 +1,38 @@
 namespace RoyalLibrary.Api.Controllers;
+
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using RoyalLibrary.Application.Services.Book;
-using RoyalLibrary.Contracts.Book;
+using RoyalLibrary.Application.Books.Queries.GetAll;
+using RoyalLibrary.Application.Books.Queries.GetAllBySearch;
 
 [ApiController]
 [Route("books")]
 public class BooksController : ControllerBase 
 {
-    private readonly IBookService _bookService;
+    private readonly ISender _mediator;
 
-    public BooksController(IBookService bookService)
+    public BooksController(ISender mediator)
     {
-        _bookService = bookService;
+        _mediator = mediator;
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAsync()
+    public async Task<IActionResult> GetAllBooksAsync()
     {
-        var response = await _bookService.GetAllBooks();
+        var command = new GetAllQuery();
+
+        var response = await _mediator.Send(command);
 
         return Ok(response.Books);
     }
 
-    [HttpPost]
-    public IActionResult PostAsync(BookRequest request)
+    [HttpGet("{searchValue}")]
+    public async Task<IActionResult> GetAllBooksBySearchAsync([FromQuery] string searchValue, string searchType)
     {
-        return Ok();
+        var command = new GetAllBySearchQuery(searchValue, searchType);
+
+        var response = await _mediator.Send(command);
+
+        return Ok(response.Books);
     }
 }
