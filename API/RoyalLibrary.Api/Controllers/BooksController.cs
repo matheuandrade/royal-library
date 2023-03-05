@@ -26,7 +26,7 @@ public class BooksController : ControllerBase
         return Ok(response.Books);
     }
 
-    [HttpGet("{searchValue}")]
+    [HttpGet("search")]
     public async Task<IActionResult> GetAllBooksBySearchAsync([FromQuery] string searchValue, string searchType)
     {
         var command = new GetAllBySearchQuery(searchValue, searchType);
